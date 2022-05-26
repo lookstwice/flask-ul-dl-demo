@@ -45,19 +45,19 @@ def download():
 def uploadfile():
     return render_template('upload.html')
 
-@app.route('/foo')
-def foo():
+@app.route('/downloader')
+def downloader():
     generate_csv()
     return send_file(file_path, as_attachment=True)
 
-@app.route('/bar', methods = ['GET', 'POST'])
-def bar():
+@app.route('/uploader', methods = ['GET', 'POST'])
+def uploader():
    if request.method == 'POST': # check if the method is post
       f = request.files['file'] # get the file from the files object
       file_path = os.path.join(app.config['UPLOAD_FOLDER'] ,secure_filename(f.filename))
       f.save(file_path)
       if os.path.exists(file_path):
-          msg = "UPLOAD SUCCESS"
+          msg = f"UPLOAD SUCCESS: {file_path}"
       else:
           msg = "UPLOAD FAILURE"
       return f'{msg}' # Display message after uploading
