@@ -6,9 +6,11 @@ from werkzeug.utils import secure_filename
 
 #initialising the flask app
 app = Flask(__name__)
+app_settings = os.getenv('APP_SETTINGS')
+app.config.from_object(app_settings)
 
 # upload and test file paths
-base_path = os.path.join(os.environ.get("HOME"), "Downloads", "ul_dl_demo")
+base_path = os.path.join(os.environ.get("HOME"), "ul_dl_demo")
 file_path = os.path.join(base_path, "download_demo.csv")
 
 # Creating the upload folder
@@ -61,4 +63,5 @@ def bar():
       return f'{msg}' # Display message after uploading
 
 if __name__ == '__main__':
-   app.run() # running the flask app
+   # app.run() # running the flask app
+   app.run(host="0.0.0.0", debug=True)
