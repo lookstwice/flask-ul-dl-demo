@@ -27,6 +27,7 @@ if not os.path.exists(base_path):
 app.config['UPLOAD_FOLDER'] = base_path
 
 # Note: xlswriter can handle formatting the column width
+# openpyxl might be a better alternative to xlsxwritter.
 def generate_xlsx():
     # Create a workbook and add a worksheet.
     workbook = xlsxwriter.Workbook(xlsx_file_path)
