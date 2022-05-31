@@ -1,6 +1,5 @@
 # importing the required libraries
 import os
-import csv
 import xlsxwriter
 
 import pandas as pd
@@ -37,9 +36,9 @@ def generate_xlsx():
 
     # Some data we want to write to the worksheet.
     data = (
-        ["658954", "HEB CC CHOCOLATE & CHERRIES", 10],
-        ["142989", "CC NEAPOLITAN 1/2 GAL", 5],
-        ["700048", "BOMB POP ORIGINAL 24CT", 1]
+        ["111111", "CC CHOCOLATE & CHERRIES", 10],
+        ["222222", "CC NEAPOLITAN 1/2 GAL", 5],
+        ["333333", "BOMB POP ORIGINAL 24CT", 1]
     )
 
     cell_num = 1
